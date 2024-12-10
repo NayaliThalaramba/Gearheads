@@ -1,0 +1,443 @@
+[
+    {
+        "id": 1,
+        "name": "Ferrari 488 GTB",
+        "image": "/Images/Sportscars/Ferrari-488-GTB.jpg",
+        "detail1": "3.9L Twin-Turbo V8",
+        "detail2": "661 hp",
+        "detail3": "211mph",
+        "detail4": "7-speed dual-clutch automatic"
+    },
+    {
+        "id": 2,
+        "name": "Lamborghini Huracan",
+        "image": "/Images/Sportscars/Lamborghini-Huracan.jpeg",
+        "detail1": "5.2L Naturally Aspirated V10",
+        "detail2": "631 hp",
+        "detail3": "202-221mph",
+        "detail4": "7-speed dual-clutch automatic"
+    },
+    {
+        "id": 3,
+        "name": "Porsche 911 Turbo S",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "3.8L Twin-Turbo Flat-6",
+        "detail2": "640 hp",
+        "detail3": "205mph",
+        "detail4": "8-speed PDK dual-clutch automatic"
+    },
+    {
+        "id": 4,
+        "name": "Ferrari Laferrari",
+        "image": "/Images/Sportscars/Ferrari-LaFerrari.jpeg",
+        "detail1": "6.3L V12 Hybrid",
+        "detail2": "950 hp",
+        "detail3": "217mph",
+        "detail4": "7-speed dual-clutch automatic"
+    },
+    {
+        "id": 5,
+        "name": "Lamborghini Aventador",
+        "image": "/Images/Sportscars/Lamborghini-Aventador.jpeg",
+        "detail1": "6.5L Naturally Aspirated V12",
+        "detail2": "759 hp",
+        "detail3": "217mph",
+        "detail4": "7-speed ISR automatic"
+    },
+    {
+        "id": 6,
+        "name": "McLaren 720S",
+        "image": "/Images/Sportscars/McLaren-720S.jpeg",
+        "detail1": "4.0L Twin-Turbo V8",
+        "detail2": "710 hp",
+        "detail3": "212mph",
+        "detail4": "7-speed dual-clutch automatic"
+    },
+    {
+        "id": 7,
+        "name": "McLaren Speedtail",
+        "image": "/Images/Sportscars/mclaren-speedtail-1.jpeg",
+        "detail1": "4.0L V8 Hybrid",
+        "detail2": "1,036 hp",
+        "detail3": "250mph",
+        "detail4": "7-speed automatic"
+    },
+    {
+        "id": 8,
+        "name": "Bugatti Chiron",
+        "image": "/Images/Sportscars/Bugatti-Chiron.jpeg",
+        "detail1": "8.0L Quad-Turbocharged W16",
+        "detail2": "1,479 hp",
+        "detail3": "261mph",
+        "detail4": "8-speed dual-clutch automatic"
+    },
+    {
+        "id": 9,
+        "name": "Koenigsegg Jesko",
+        "image": "/Images/Sportscars/Koenigsegg-Jesko.jpeg",
+        "detail1": "5.0L Twin-Turbocharged V8",
+        "detail2": "1,281 hp",
+        "detail3": "300mph+",
+        "detail4": "9-speed automatic"
+    },
+    {
+        "id": 10,
+        "name": "Nissan GT-R",
+        "image": "/Images/Sportscars/Nissan-GT-R.jpeg",
+        "detail1": "3.8L Twin-Turbo V6",
+        "detail2": "565 hp",
+        "detail3": "196mph",
+        "detail4": "6-speed dual-clutch automatic"
+    },
+    {
+        "id": 11,
+        "name": "Toyota Supra",
+        "image": "/Images/Sportscars/Toyota-Supra.jpeg",
+        "detail1": "3.0L Turbocharged Inline-6",
+        "detail2": "382 hp",
+        "detail3": "155mph",
+        "detail4": "8-speed automatic or 6-speed manual"
+    },
+    {
+        "id": 12,
+        "name": "Subaru WRX STI",
+        "image": "/Images/Sportscars/Subaru-WRX-STI.jpeg",
+        "detail1": "3.9L Twin-Turbo V8",
+        "detail2": "661 hp",
+        "detail3": "155mph",
+        "detail4": "6-speed manual"
+    },
+    {
+        "id": 13,
+        "name": "Mitsubishi Lancer Evolution",
+        "image": "/Images/Sportscars/Mitsubishi-Lancer-Evolution.jpeg",
+        "detail1": "3.9L Twin-Turbo V8",
+        "detail2": "661 hp",
+        "detail3": "155-168mph",
+        "detail4": "5-speed manual or 6-speed dual-clutch automatic"
+    },
+    {
+        "id": 14,
+        "name": "Ford Mustang GT",
+        "image": "/Images/Sportscars/Ford-Mustang-GT.jpeg",
+        "detail1": "5.0L Naturally Aspirated V8",
+        "detail2": "450 hp",
+        "detail3": "180mph",
+        "detail4": "6-speed manual or 10-speed automatic"
+    },
+    {
+        "id": 15,
+        "name": "Chevrolet Corvette",
+        "image": "/Images/Sportscars/Chevrolet-Corvette.jpeg",
+        "detail1": "6.2L V8",
+        "detail2": "495 hp",
+        "detail3": "194-205mph",
+        "detail4": "8-speed dual-clutch automatic"
+    },
+    {
+        "id": 16,
+        "name": "Dodge Challenger Hellcat",
+        "image": "/Images/Sportscars/Dodge-Challenger-Hellcat.jpeg",
+        "detail1": "6.2L Supercharged V8",
+        "detail2": "707 hp",
+        "detail3": "199-204mph",
+        "detail4": "8-speed automatic"
+    },
+    {
+        "id": 17,
+        "name": "Tesla Model S Plaid",
+        "image": "/Images/Sportscars/Tesla-Model-S-Plaid.jpeg",
+        "detail1": "Electric Tri-Motor",
+        "detail2": "1,020 hp",
+        "detail3": "200mph",
+        "detail4": "Single-speed direct-drive"
+    },
+    {
+        "id": 18,
+        "name": "Porsche 911 GT3 RS",
+        "image": "/Images/Sportscars/Porsche-911-GT3-RS.jpeg",
+        "detail1": "4.0L Naturally Aspirated Flat-6",
+        "detail2": "518 hp",
+        "detail3": "193-205mph",
+        "detail4": "7-speed PDK dual-clutch automatic"
+    },
+    {
+        "id": 19,
+        "name": "Audi R8",
+        "image": "/Images/Sportscars/Audi-R8.jpeg",
+        "detail1": "3.9L Twin-Turbo V8",
+        "detail2": "661 hp",
+        "detail3": "206-209mph",
+        "detail4": "7-speed dual-clutch automatic"
+    },
+    {
+        "id": 20,
+        "name": "BMW M5",
+        "image": "/Images/Sportscars/BMW-M5.jpeg",
+        "detail1": "4.4L Twin-Turbo V8",
+        "detail2": "617 hp",
+        "detail3": "190mph",
+        "detail4": "8-speed automatic"
+    },
+    {
+        "id": 21,
+        "name": "Mercedes-AMG GT Black Series",
+        "image": "/Images/Sportscars/Mercedes-AMG-GT-Black-Series.jpeg",
+        "detail1": "4.0L Twin-Turbo V8",
+        "detail2": "720 hp",
+        "detail3": "202mph",
+        "detail4": "7-speed dual-clutch automatic"
+    },
+    {
+        "id": 22,
+        "name": "Aston Martin DB11",
+        "image": "/Images/Sportscars/Aston-Martin-DB11.jpeg",
+        "detail1": "5.2L Twin-Turbo V12",
+        "detail2": "630 hp",
+        "detail3": "200mph",
+        "detail4": "8-speed automatic"
+    },
+    {
+        "id": 23,
+        "name": "Bentley Continental GT",
+        "image": "/Images/Sportscars/Bentley-Continental-GT.jpeg",
+        "detail1": "6.0L W12 Twin-Turbocharged",
+        "detail2": "626 hp",
+        "detail3": "209-210mph",
+        "detail4": "8-speed dual-clutch automatic"
+    },
+    {
+        "id": 24,
+        "name": "Rolls-Royce Phantom",
+        "image": "/Images/Sportscars/Rolls-Royce-Phantom.jpeg",
+        "detail1": "6.75L V12",
+        "detail2": "563 hp",
+        "detail3": "155mph",
+        "detail4": "8-speed automatic"
+    },
+    {
+        "id": 25,
+        "name": "McLaren F1",
+        "image": "/Images/Sportscars/McLaren-F1.jpeg",
+        "detail1": "6.1L Naturally Aspirated V12",
+        "detail2": "627 hp",
+        "detail3": "240mph",
+        "detail4": "6-speed manual"
+    },
+    {
+        "id": 26,
+        "name": "Ferrari F40",
+        "image": "/Images/Sportscars/Ferrari-F40.jpeg",
+        "detail1": "2.9L Twin-Turbocharged V8",
+        "detail2": "471 hp",
+        "detail3": "201mph",
+        "detail4": "5-speed manual"
+    },
+    {
+        "id": 27,
+        "name": "Lamborghini Countach",
+        "image": "/Images/Sportscars/Lamborghini-Countach.jpeg",
+        "detail1": "5.2L Naturally Aspirated V12",
+        "detail2": "455 hp",
+        "detail3": "186-200mph",
+        "detail4": "5-speed manual"
+    },
+    {
+        "id": 28,
+        "name": "Porsche 959",
+        "image": "/Images/Sportscars/Porsche-959.jpeg",
+        "detail1": "2.85L Twin-Turbocharged Flat-6",
+        "detail2": "444 hp",
+        "detail3": "199mph",
+        "detail4": "6-speed manual"
+    },
+    {
+        "id": 29,
+        "name": "Ferrari Enzo Ferrari",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "6.0L Naturally Aspirated V12",
+        "detail2": "651 hp",
+        "detail3": "218mph",
+        "detail4": "6-speed F1 automated manual"
+    },
+    {
+        "id": 30,
+        "name": "McLaren P1",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "3.8L Twin-Turbo V8 Hybrid",
+        "detail2": "903 hp",
+        "detail3": "218mph",
+        "detail4": "7-speed dual-clutch automatic"
+    },
+    {
+        "id": 31,
+        "name": "Pagani Huayra",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "3.9L Twin-Turbo V8",
+        "detail2": "661 hp",
+        "detail3": "268mph",
+        "detail4": "7-speed manual"
+    },
+    {
+        "id": 32,
+        "name": "Koenigsegg Agera RS",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "5.0L Twin-Turbocharged V8",
+        "detail2": "1,341 hp",
+        "detail3": "278mph",
+        "detail4": "7-speed dual-clutch automatic"
+    },
+    {
+        "id": 33,
+        "name": "Nissan Skyline GT-R R34",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "2.6L Twin-Turbo Inline-6",
+        "detail2": "276 hp",
+        "detail3": "186mph",
+        "detail4": "6-speed manual"
+    },
+    {
+        "id": 34,
+        "name": "Mazda RX-7",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "1.3L Twin-Rotor Rotary Engine",
+        "detail2": "276 hp",
+        "detail3": "160-186mph",
+        "detail4": "5-speed manual or 6-speed manual"
+    },
+    {
+        "id": 35,
+        "name": "Honda NSX",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "3.5L Twin-Turbocharged V6 Hybrid",
+        "detail2": "573 hp",
+        "detail3": "170mph",
+        "detail4": "5-speed manual or 6-speed manual"
+    },
+    {
+        "id": 36,
+        "name": "Toyota Supra MKIV",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "3.0L Twin-Turbocharged Inline-6",
+        "detail2": "276 hp",
+        "detail3": "177-186mph",
+        "detail4": "6-speed manual"
+    },
+    {
+        "id": 37,
+        "name": "Dodge Viper",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "8.4L Naturally Aspirated V10",
+        "detail2": "645 hp",
+        "detail3": "190-206 mph",
+        "detail4": "6-speed manual"
+    },
+    {
+        "id": 38,
+        "name": "Caterham Seven",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "2.0L Inline-4",
+        "detail2": "310 hp",
+        "detail3": "124-155mph",
+        "detail4": "5-speed manual or 6-speed manual"
+    },
+    {
+        "id": 39,
+        "name": "Lotus Elise",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "1.8L Supercharged Inline-4",
+        "detail2": "240 hp",
+        "detail3": "155-168mph",
+        "detail4": "5-speed manual or 6-speed manual"
+    },
+    {
+        "id": 40,
+        "name": "Ariel Atom",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "2.0L Supercharged Inline-4",
+        "detail2": "320 hp",
+        "detail3": "150-160mph",
+        "detail4": "6-speed manual"
+    },
+    {
+        "id": 41,
+        "name": "BAC Mono",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "2.5L Inline-4",
+        "detail2": "305 hp",
+        "detail3": "170mph",
+        "detail4": "6-speed manual"
+    },
+    {
+        "id": 42,
+        "name": "Radical SR8",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "2.7L V8",
+        "detail2": "430 hp",
+        "detail3": "155-190mph",
+        "detail4": "6-speed manual"
+    },
+    {
+        "id": 43,
+        "name": "Datsun 240Z",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "2.4L Inline-6",
+        "detail2": "151 hp",
+        "detail3": "125mph",
+        "detail4": "5-speed manual"
+    },
+    {
+        "id": 44,
+        "name": "Ferrari 812 Superfast",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "6.5L Naturally Aspirated V12",
+        "detail2": "789 hp",
+        "detail3": "211mph",
+        "detail4": "7-speed dual-clutch automatic"
+    },
+    {
+        "id": 45,
+        "name": "Lamborghini Urus",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "4.0L Twin-Turbo V8",
+        "detail2": "641 hp",
+        "detail3": "190mph",
+        "detail4": "8-speed automatic"
+    },
+    {
+        "id": 46,
+        "name": "Porsche Taycan Turbo S",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "Electric Dual Motor",
+        "detail2": "750 hp",
+        "detail3": "161mph",
+        "detail4": "2-speed automatic"
+    },
+    {
+        "id": 47,
+        "name": "Audi RS 6 Avant",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "5.2L Naturally Aspirated V10",
+        "detail2": "602 hp",
+        "detail3": "189mph",
+        "detail4": "8-speed automatic"
+    },
+    {
+        "id": 48,
+        "name": "Mercedes-AMG E63 S",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "4.0L Twin-Turbo V8",
+        "detail2": "603 hp",
+        "detail3": "186mph",
+        "detail4": "9-speed automatic"
+    },
+    {
+        "id": 49,
+        "name": "BMW M8 Competition",
+        "image": "/Images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "detail1": "4.4L Twin-Turbo V8",
+        "detail2": "617 hp",
+        "detail3": "190mph",
+        "detail4": "8-speed automatic"
+    }
+]
