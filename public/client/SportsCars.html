@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Cars</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Girassol&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Pacifico&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <a href="/ExploreCars.html" class="back-button">← Back</a>
+    <section class="hero">
+        <img src="Images/SportsCar.JPG" alt="Sports Cars">
+        <h1>Sports Cars</h1>
+    </section>
+
+    <div class="grid-container">
+        <!-- Grid content injected here by JavaScript -->
+    </div>
+
+    <!-- Modal for Car Details -->
+    <div id="carModal" class="modal">
+        <div class="modal-content">
+            <div id="Row1">
+                <div class="modal-logo-container">
+                    <img id="modalLogo" src="" alt="Brand Logo" class="brand-logo">
+                    <h2 id="modalBrand"></h2>
+                    <p id="CarGallery">Gallery</p>
+                </div>
+                <div></div>
+                <span class="close">&times;</span>
+            </div>
+            <p id="modalName"></p>
+            <div id="Row2">
+                <div class="modal-left">
+                    <div class="modal-details">
+                        <div class="detail-section">
+                            <p class="label">Engine</p>
+                            <div id="detail1"></div>
+                        </div>
+                        <div class="detail-section">
+                            <p class="label">Horsepower</p>
+                            <div id="detail2"></div>
+                        </div>
+                        <div class="detail-section">
+                            <p class="label">Top Speed</p>
+                            <div id="detail3"></div>
+                        </div>
+                        <div class="detail-section">
+                            <p class="label">Transmission</p>
+                            <div id="detail4"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-right">
+                    <img id="modalImage" src="" alt="Car Image" class="car-image">
+                    <button id="addToFavourites" class="favourite-button">Add to Favourites</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/client/sportscar.js"></script>
+</body>
+<style>
+    #Row1 {
+        display: grid;
+        grid-template-columns: 2fr 3fr 1fr;
+        margin-bottom: 20px;
+    }
+
+    #Row2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 50px;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #000000;
+    }
+
+    .hero {
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        text-align: center;
+        color: white;
+    }
+
+    .hero img {
+        width: 100%;
+        object-fit: cover;
+        height: 100vh;
+    }
+
+    .hero h1 {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 9em;
+        text-shadow: 0 0 3px black;
+        color: #ffffff;
+        font-family: "Girassol", serif;
+        font-weight: 400;
+        font-style: normal;
+
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .car-card {
+        border: 1px solid #000000;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        background: #000000;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .car-image {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+    }
+
+    h3 {
+        margin: 10px 0 5px;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        top: 40%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        color: #ffffff;
+    }
+
+    .car-card:hover h3 {
+        opacity: 1;
+        /* Show name on hover */
+    }
+
+    .car-card:hover .car-image {
+        opacity: 0.3;
+        /* Slightly fade the image on hover */
+    }
+
+    p {
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 1);
+    }
+
+    .modal-content {
+        display: grid;
+        position: relative;
+        margin: 10% auto;
+        padding: 20px;
+        width: 80%;
+        max-width: 1000px;
+        background-color: #D9D9D9;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .modal-left {
+        flex: 1;
+        padding-right: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .modal-right {
+        flex: 1;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .brand-logo {
+        width: 80px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    /* .modal-left h2 {
+        font-size: 1.5em;
+        margin-bottom: 5px;
+        font-family: "Girassol", serif;
+    } */
+
+    .modal-left h3 {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    .modal-details {
+        overflow-y: auto;
+        max-height: 300px;
+        /* border-top: 1px solid #ddd; */
+        padding-top: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .detail-section {
+        display: grid;
+        grid-template-rows: 1fr 2fr;
+        margin-bottom: 20px;
+        font-size: 1em;
+        color: #ffffff;
+        padding: 10px;
+        /* border: 1px solid #ccc; */
+        border-radius: 15px;
+        background-color: rgba(0, 0, 0, 0.8);
+        text-align: justify;
+        height: 110px;
+        padding: 0 40px;
+    }
+
+    .car-image {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 10px;
+    }
+
+    .modal-logo-container {
+        display: grid;
+        margin-bottom: 10px;
+        grid-template-columns: 20% 30% 40%;
+        gap: 0px;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    #modalName {
+        display: block;
+        margin-left: 100px;
+        font-size: 2.5rem;
+        font-family: "Girassol", serif;
+        font-weight: 400;
+        text-align: left;
+        margin-bottom: 60px;
+    }
+
+    #CarGallery {
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: "Girassol", serif;
+        margin: 10px 0;
+        color: #000;
+    }
+
+    #modalBrand {
+        font-family: "Girassol", serif;
+        margin: 10px 0;
+        font-size: 1rem;
+    }
+
+    .label {
+        color: #a4a1a1;
+    }
+
+    .favourite-button {
+        background-color: #000000;
+        /* Color of the button */
+        color: white;
+        /* Text color */
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        text-align: center;
+        margin-top: 20px;
+        width: 80%;
+        transition: background-color 0.3s ease;
+        margin: auto;
+    }
+
+    .favourite-button:hover {
+        background-color: #64615c;
+        /* Hover effect */
+    }
+
+    .back-button {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: #000;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2rem;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-family: sans-serif;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        transition: background-color 0.3s ease;
+        z-index: 2000;
+    }
+
+    .back-button:hover {
+        background-color: #333;
+        color: #fff;
+    }
+</style>
+
+</html>

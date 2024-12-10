@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Drive Tours</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Girassol&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Pacifico&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Background Video -->
+    <video id="bgVideo" autoplay muted playsinline
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <source src="/videos/Dashboard.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Gear Navbar -->
+    <div class="Gear-NavBar" style="width: 21%; height: 293px; left: 1100px; top: 42px; position: absolute">
+
+        <div class="Ellipse1"
+            style="width: 299px; height: 293px; left: 0px; top: 0px; position: absolute; background: black; border-radius: 9999px; box-shadow: 4px 4px 28px #ffffff;">
+
+            <div class="Ellipse2"
+                style="width: 248px; height: 242px; left: 26px; top: 28px; position: absolute; background: black; border-radius: 9999px; border: 1px white solid">
+
+                <div class="Ellipse3"
+                    style="width: 260px; height: 255px; left: -7px; top: -8px; position: absolute; background: rgba(217, 217, 217, 0); border-radius: 9999px; border: 1px white solid">
+
+                    <div class="LineBox" style="top:-10px; left:-30px;">
+                        <div class="Line1"
+                            style="width: 140px; height: 0px; left: 62px; top: 131px; position: absolute; background: white; border: 1px white solid">
+                        </div>
+                        <div class="Line2"
+                            style="width: 57px; height: 0px; left: 78px; top: 155px; position: absolute; transform: rotate(-90deg); transform-origin: 0 0; background: white; border: 1px white solid">
+                        </div>
+                        <div class="Line3"
+                            style="width: 160px; height: 0px; left: 130px; top: 210px; position: absolute; transform: rotate(-90deg); transform-origin: 0 0; background: white; border: 1px white solid">
+                        </div>
+                        <div class="Line4"
+                            style="width: 87px; height: 0px; left: 180px; top: 180px; position: absolute; transform: rotate(-90deg); transform-origin: 0 0; background: white; border: 1px white solid">
+                        </div>
+                    </div>
+                    <div class="Home" id="home"
+                        style="width: 39px; height: 14px; left: 62px; top: 75px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Girassol; font-weight: 400; word-wrap: break-word">
+                        <a href="/index.html" class="nav-link" data-target="home"
+                            style="text-decoration: none; color: white;">Home</a>
+                    </div>
+                    <div class="ExlporeCars" id="explore"
+                        style="width: 85px; height: 14px; left: 95px; top: 25px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Girassol; font-weight: 400; word-wrap: break-word">
+                        <a href="/ExploreCars.html" class="nav-link" data-target="explore"
+                            style="text-decoration: none; color: white;">Explore Cars</a>
+                    </div>
+                    <div class="Community" id="community"
+                        style="width: 80px; height: 14px; left: 145px; top: 70px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Girassol; font-weight: 400; word-wrap: break-word">
+                        <a href="/Community.html" class="nav-link" data-target="community" style="text-decoration: none; color: white;">Community</a>
+                    </div>
+                    <div class="Profile" id="profile"
+                        style="width: 47px; height: 14px; left: 110px; top: 210px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Girassol; font-weight: 400; word-wrap: break-word">
+                        <a href="/Profile.html" class="nav-link" data-target="profile"
+                            style="text-decoration: none; color: white;">Profile</a>
+                    </div>
+                    <div class="Drives" id="drives"
+                        style="width: 46px; height: 14px; left: 160px; top: 180px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Girassol; font-weight: 400; word-wrap: break-word">
+                        <a href="/Drives.html" class="nav-link" data-target="drives"
+                            style="text-decoration: none; color: white;">Drives</a>
+                    </div>
+                    <div class="NewsReviews" id="news"
+                        style="width: 62px; height: 47px; left: 51px; top: 161px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Girassol; font-weight: 400; word-wrap: break-word">
+                        <a href="/News.html" class="nav-link" data-target="news"
+                            style="text-decoration: none; color: white;">News<br />&<br />Reviews</a>
+                    </div>
+                    <div class="GearPoint" id="gear-point"
+                        style="width: 25px; height: 25px; left: 170px; top: 158px; position: absolute; background: white; border-radius: 9999px; border: 1px black solid">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- Vehicle Selector Section -->
+    <main id="vehicleSelector" class="hidden">
+        <section class="vehicle-selector">
+            <h2>Select a Vehicle</h2>
+            <div class="vehicle-cards">
+                <div class="vehicle-card" data-vehicle="Maybach">
+                    <img src="/Images/Maybach.JPG" alt="Maybach">
+                    <p>Mercedes Maybach EQS 680</p>
+                </div>
+                <div class="vehicle-card" data-vehicle="suv">
+                    <img src="/Images/HummerEV.jpeg" alt="Hummer EV">
+                    <p>Hummer EV</p>
+                </div>
+                <div class="vehicle-card" data-vehicle="luxuryCar">
+                    <img src="/Images/Maserati-Granturismo-Folgore.jpeg" alt="Maserati">
+                    <p>Maserati Granturismo Folgore</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <div class="close-btn-container">
+                <span id="closeModal" class="close-btn">&times;</span>
+            </div>
+            <video id="driveVideo" controls>
+                <source id="videoSource" src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const bgVideo = document.getElementById('bgVideo');
+            const vehicleSelector = document.getElementById('vehicleSelector');
+            const videoModal = document.getElementById('videoModal');
+            const videoSource = document.getElementById('videoSource');
+            const driveVideo = document.getElementById('driveVideo');
+            const closeModal = document.getElementById('closeModal');
+
+            const videoMap = {
+                Maybach: '/videos/Maybach.mp4',
+                suv: '/videos/HummerEV.mp4',
+                luxuryCar: '/videos/Maserati.mp4',
+            };
+
+            // Hide background video and show vehicle selector after video ends
+            bgVideo.addEventListener('ended', () => {
+                bgVideo.style.display = 'none';
+                vehicleSelector.classList.remove('hidden');
+            });
+
+            // Show modal with vehicle video on card click
+            document.querySelectorAll('.vehicle-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const selectedVehicle = card.getAttribute('data-vehicle');
+                    videoSource.src = videoMap[selectedVehicle];
+                    driveVideo.load();
+                    videoModal.style.display = 'block';
+                });
+            });
+
+            // Close modal
+            closeModal.addEventListener('click', () => {
+                videoModal.style.display = 'none';
+                driveVideo.pause();
+            });
+        });
+
+
+
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent default navigation
+                const target = this.dataset.target; // Get target ID
+                const gearPoint = document.getElementById('gear-point');
+
+                // Define animations for each target
+                const animations = {
+                    home: { animation: "moveToHome 1s forwards", url: "/index.html" },
+                    explore: { animation: "moveToExplore 1s forwards", url: "/ExploreCars.html" },
+                    community: { animation: "moveToCommunity 1s forwards", url: "/Community.html" },
+                    profile: { animation: "moveToProfile 1s forwards", url: "/Profile.html" },
+                    drives: { animation: "moveToDrives 1s forwards", url: "/Drives.html" },
+                    news: { animation: "moveToNews 1s forwards", url: "/News.html" }
+                };
+
+                // Apply the animation
+                if (animations[target]) {
+                    gearPoint.style.animation = animations[target].animation;
+
+                    // Navigate to the target page after animation
+                    setTimeout(() => {
+                        window.location.href = animations[target].url;
+                    }, 1000); // Match this duration with the animation duration
+                }
+            });
+        });
+
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Girassol", serif;
+            color: white;
+            /* overflow: hidden; */
+            background-color: #000000;
+        }
+
+
+        @keyframes moveToProfile {
+            0% {
+                top: 155px;
+                left: 168px;
+            }
+
+            25% {
+                top: 118px;
+                left: 168px;
+            }
+
+            50% {
+                top: 118px;
+                left: 118px;
+            }
+
+
+            100% {
+                top: 185px;
+                left: 118px;
+            }
+        }
+
+        @keyframes moveToNews {
+            0% {
+                top: 155px;
+                left: 168px;
+            }
+
+            25% {
+                top: 118px;
+                left: 168px;
+            }
+
+            50% {
+                top: 118px;
+                left: 66px;
+            }
+
+
+            100% {
+                top: 136px;
+                left: 66px;
+            }
+        }
+
+        @keyframes moveToHome {
+            0% {
+                top: 155px;
+                left: 168px;
+            }
+
+            25% {
+                top: 118px;
+                left: 168px;
+            }
+
+            50% {
+                top: 118px;
+                left: 66px;
+            }
+
+            100% {
+                top: 90px;
+                left: 62px;
+            }
+        }
+
+        @keyframes moveToExplore {
+            0% {
+                top: 155px;
+                left: 168px;
+            }
+
+            25% {
+                top: 118px;
+                left: 168px;
+            }
+
+            50% {
+                top: 118px;
+                left: 118px;
+            }
+
+
+            100% {
+                top: 45px;
+                left: 118px;
+            }
+        }
+
+        @keyframes moveToCommunity {
+            0% {
+                top: 155px;
+                left: 168px;
+            }
+
+            50% {
+                top: 118px;
+                left: 168px;
+            }
+
+            100% {
+                top: 90px;
+                left: 168px;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #vehicleSelector {
+            height: 90vh;
+            width: 100vw;
+            margin: 10% auto 2% auto;
+        }
+
+        .vehicle-selector {
+            height: 100%;
+        }
+
+        .vehicle-selector h2 {
+            display: block;
+            margin: 10% auto;
+            text-align: center;
+            font-size: 5.5rem;
+            font-family: "Girassol", serif;
+        }
+
+        .vehicle-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            /* Ensures cards wrap to a new line if necessary */
+            max-width: 80%;
+            /* Prevents it from being too wide */
+            margin: 0 auto;
+
+        }
+
+        .vehicle-card {
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            width: 30%;
+            /* Set a smaller fixed width */
+            height: 300px;
+            /* Set a smaller fixed height */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .vehicle-card img {
+            width: 100%;
+            /* Ensure images fit within the card */
+            height: 100%;
+            /* Maintain aspect ratio */
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .vehicle-card:hover {
+            transform: scale(1.1);
+        }
+
+        .vehicle-card p {
+            margin: 10px 0 0;
+            font-size: 1.5rem;
+            font-family: "Girassol", serif;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            width: 90%;
+            /* max-width: 800px; */
+            position: relative;
+            display: grid;
+            margin: 5% auto;
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -30px;
+            right: 0;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</body>
+
+</html>
