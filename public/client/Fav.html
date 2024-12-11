@@ -83,12 +83,14 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: white;
+            background-color: rgba(0, 0, 0, 0.5);
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 40%;
             padding: 30% 80%;
             z-index: 1000;
+            color: #ffffff;
+            overflow: visible;
         }
 
         .modal.active {
@@ -99,6 +101,9 @@
             font-size: 2rem;
             font-weight: bold;
             text-align: center;
+            flex-grow: 1;
+            /* Allow the header to take up space */
+            color: #ffffff;
         }
 
         .modal-content {
@@ -107,12 +112,20 @@
         }
 
         .modal-close {
-            position: absolute;
-            top: 10px;
+            top: 0px;
             right: 10px;
             cursor: pointer;
-            font-size: 40px;
             color: red;
+            z-index: 1800;
+            position: absolute;
+            font-size: 2.5rem;
+            background: none;
+            /* Remove background */
+            border: none;
+            /* Remove border */
+            padding: 5px;
+            line-height: 1;
+            align-self: flex-start;
         }
 
         /* Overlay for modal */
@@ -144,6 +157,19 @@
             border-radius: 8px;
             margin: 15px 0;
         }
+
+        .modal-header-container {
+            display: flex;
+            justify-content: space-between;
+            /* Align header and close button */
+            align-items: center;
+            /* Vertically align items */
+            padding: 10px 15px;
+            /* Add some padding */
+            position: relative;
+            background-color: #000000;
+            /* Match the modal background */
+        }
     </style>
 </head>
 
@@ -154,8 +180,10 @@
     <!-- Modal -->
     <div class="modal-overlay" id="modalOverlay"></div>
     <div class="modal" id="carModal">
-        <span class="modal-close" id="modalClose">&times;</span>
-        <div class="modal-header" id="modalTitle"></div>
+        <div class="modal-header-container">
+            <div class="modal-header" id="modalTitle"></div>
+            <span class="modal-close" id="modalClose">&times;</span>
+        </div>
         <img id="modalImage" alt="Car Image" style="width: 100%; border-radius: 8px; margin-top: 10px;">
         <div class="modal-content" id="modalContent"></div>
     </div>
