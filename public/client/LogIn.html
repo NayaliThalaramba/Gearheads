@@ -42,13 +42,13 @@
 
             <div class="divider"></div>
 
-            <form onsubmit="submitLogin(event)">
+            <form onsubmit="submitLogin(event)" autocomplete="off">
 
                 <label for="username">Driver ID</label>
-                <input type="text" id="username" required>
+                <input type="text" id="username" required autocomplete="off">
 
                 <label for="password">Security Key</label>
-                <input type="password" id="password" required>
+                <input type="password" id="password" required autocomplete="new-password">
 
                 <div class="extra-options">
                     <label class="remember">
