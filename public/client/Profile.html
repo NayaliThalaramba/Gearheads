@@ -16,7 +16,9 @@
         <!-- User Image and Welcome Text -->
         <div class="top-left">
             <img src="/images//UserProfile.jpeg" alt="User Image" class="user-image">
-            <h1 class="welcome-text">Welcome @Username!</h1>
+            <h1 class="welcome-text" id="welcome-text">
+                Welcome!
+            </h1>
         </div>
 
         <!-- Gear Navigation -->
@@ -129,6 +131,10 @@
                 <img src="/images//Edit.png">
                 <h3>Edit my profile</h3>
             </div>
+            <div class="Logout" id="logout-button">
+                <img src="/images//power.png">
+                <h3>Engine Off</h3>
+            </div>
         </div>
 
 
@@ -182,6 +188,18 @@
     </div>
 
     <script>
+        if (localStorage.getItem("loggedIn") !== "true") {
+            window.location.href = "/LogIn.html";
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const username =
+                localStorage.getItem("gearheadsUser");
+
+            document.getElementById("welcome-text")
+                .textContent = `Welcome ${username}!`;
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
             const items = document.querySelectorAll('.grid-item');
             const options = document.querySelector('.Options');
@@ -346,6 +364,23 @@
                 } else if (target.classList.contains('delete-forum')) {
                     alert(`Deleting forum ID: ${forumId}`);
                     // Add logic to delete forum
+                }
+            });
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const logoutBtn = document.getElementById('logout-button');
+
+            logoutBtn.addEventListener('click', () => {
+
+                const confirmLogout =
+                    confirm("Turn off the engine and leave Gearheads?");
+
+                if (confirmLogout) {
+
+                    localStorage.removeItem("loggedIn");
+
+                    window.location.href = "/LogIn.html";
                 }
             });
         });
@@ -816,6 +851,50 @@
 
     .forum-item button {
         margin-right: 5px;
+    }
+
+    .Logout {
+        display: grid;
+        background: #ffffff;
+        border: 1px solid rgba(255, 70, 70, 0.2);
+
+        height: 8vh;
+        width: 25vw;
+
+        border-radius: 15px;
+        gap: 1%;
+        text-align: center;
+        grid-template-columns: 1fr 2fr;
+
+        opacity: 0.95;
+        cursor: pointer;
+
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease,
+            border-color 0.3s ease;
+    }
+
+    .Logout img {
+        height: auto;
+        width: 98%;
+        object-fit: contain;
+        margin: auto;
+    }
+
+    .Logout h3 {
+        text-align: left;
+        color: black;
+    }
+
+    .Logout:hover {
+        transform: translateY(-5px);
+
+        border-color: rgba(255, 90, 90, 0.7);
+
+        box-shadow:
+            0 0 20px rgba(255, 70, 70, 0.35),
+            0 0 50px rgba(255, 50, 50, 0.15);
     }
 </style>
 

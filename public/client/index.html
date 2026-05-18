@@ -10,6 +10,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Girassol&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Pacifico&display=swap"
     rel="stylesheet">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
 </head>
 
 <body>
@@ -115,6 +117,53 @@
       </div>
     </div>
   </div> -->
+  <!-- Car of the Day Section -->
+  <section class="car-of-day-section">
+
+    <h1 class="car-day-title">Car of the Day</h1>
+
+    <div class="car-day-card">
+
+      <div class="car-day-image">
+
+        <model-viewer src="/models/porsche911.glb" alt="Porsche 911 Turbo S" auto-rotate camera-controls
+          touch-action="pan-y" shadow-intensity="1" exposure="1.2" camera-orbit="0deg 75deg 5m"
+          min-camera-orbit="auto auto 3m" max-camera-orbit="auto auto 8m">
+        </model-viewer>
+
+      </div>
+
+      <div class="car-day-content">
+        <h2>Porsche 911 Turbo S</h2>
+
+        <p class="car-tagline">
+          Luxury, speed and precision engineered into one timeless machine.
+        </p>
+
+        <div class="car-specs">
+          <div>
+            <span>Power</span>
+            <h3>640 HP</h3>
+          </div>
+
+          <div>
+            <span>0–100 km/h</span>
+            <h3>2.7 sec</h3>
+          </div>
+
+          <div>
+            <span>Top Speed</span>
+            <h3>330 km/h</h3>
+          </div>
+        </div>
+
+        <button class="car-day-btn">
+          Explore More
+        </button>
+      </div>
+
+    </div>
+  </section>
 
   <h1 class="FC-title">Featured Cars</h1>
   <div class="featured-section">
@@ -397,6 +446,15 @@
     transform: rotateY(180deg);
   }
 
+  model-viewer {
+    background:
+      radial-gradient(circle at center,
+        rgba(255, 255, 255, 0.08),
+        rgba(0, 0, 0, 0.2));
+
+    border-radius: 25px;
+  }
+
   /* 
   .featured-section {
       display: grid;
@@ -477,6 +535,141 @@
     .overlay button:hover {
       background-color: #f0c14b;
     } */
+  /* Car of the Day */
+
+  .car-of-day-section {
+    width: 100%;
+    min-height: 100vh;
+    /* fit screen height */
+    padding: 30px 6%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .car-day-title {
+    font-size: 4rem;
+    color: white;
+    text-align: center;
+    font-family: "Girassol", serif;
+    margin-bottom: 20px;
+    /* smaller spacing */
+  }
+
+  .car-day-card {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 30px;
+
+    padding: 30px;
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
+
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .car-day-image {
+    width: 100%;
+  }
+
+  /* controls model-viewer size */
+  .car-day-image model-viewer {
+    width: 100%;
+    height: 45vh;
+    /* responsive instead of fixed 650px */
+    border-radius: 25px;
+
+    background:
+      radial-gradient(circle at center,
+        rgba(255, 255, 255, 0.08),
+        rgba(0, 0, 0, 0.2));
+  }
+
+  .car-day-content {
+    width: 100%;
+    text-align: center;
+    color: white;
+    margin-top: 15px;
+  }
+
+  .car-day-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-family: "Girassol", serif;
+  }
+
+  .car-tagline {
+    font-size: 1rem;
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+
+  .car-specs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-bottom: 25px;
+  }
+
+  .car-specs span {
+    color: #aaaaaa;
+    font-size: 0.9rem;
+  }
+
+  .car-specs h3 {
+    margin-top: 8px;
+    font-size: 1.4rem;
+  }
+
+  .car-day-btn {
+    padding: 12px 30px;
+    border-radius: 40px;
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  .car-day-btn:hover {
+    background: white;
+    color: black;
+  }
+
+  /* Mobile */
+
+  @media (max-width: 900px) {
+    .car-of-day-section {
+      min-height: auto;
+      padding: 60px 5%;
+    }
+
+    .car-day-title {
+      font-size: 3rem;
+    }
+
+    .car-day-image model-viewer {
+      height: 38vh;
+    }
+
+    .car-day-content h2 {
+      font-size: 2rem;
+    }
+  }
 </style>
 
 </html>

@@ -58,7 +58,8 @@
                     </div>
                     <div class="Community" id="community"
                         style="width: 80px; height: 14px; left: 145px; top: 70px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Girassol; font-weight: 400; word-wrap: break-word">
-                        <a href="/Community.html" class="nav-link" data-target="community" style="text-decoration: none; color: white;">Community</a>
+                        <a href="/Community.html" class="nav-link" data-target="community"
+                            style="text-decoration: none; color: white;">Community</a>
                     </div>
                     <div class="Profile" id="profile"
                         style="width: 47px; height: 14px; left: 110px; top: 210px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Girassol; font-weight: 400; word-wrap: break-word">
@@ -122,6 +123,9 @@
     </div>
 
     <script>
+        if (localStorage.getItem("loggedIn") !== "true") {
+            window.location.href = "/LogIn.html";
+        }
         document.addEventListener("DOMContentLoaded", () => {
             const bgVideo = document.getElementById('bgVideo');
             const vehicleSelector = document.getElementById('vehicleSelector');

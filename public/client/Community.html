@@ -287,6 +287,9 @@
 
 
     <script>
+        if (localStorage.getItem("loggedIn") !== "true") {
+            window.location.href = "/LogIn.html";
+        }
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function (event) {
                 event.preventDefault(); // Prevent default navigation

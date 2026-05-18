@@ -1,3 +1,7 @@
+if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "/LogIn.html";
+}
+
 fetch('/server/data/sportscar.json')
     .then(response => response.json())
     .then(data => {
@@ -25,107 +29,107 @@ fetch('/server/data/sportscar.json')
             },
             Lamborghini: {
                 logo: '/Images/Brands/Lamborghini.png',
-                
+
             },
             Tesla: {
                 logo: '/Images/Brands/Tesla.png',
-                
+
             },
             McLaren: {
                 logo: '/Images/Brands/McLaren.png',
-                
+
             },
             Bugatti: {
                 logo: '/Images/Brands/Bugatti.png',
-                
+
             },
             Koenigsegg: {
                 logo: '/Images/Brands/Koenigsegg.png',
-                
+
             },
             Nissan: {
                 logo: '/Images/Brands/Nissan.png',
-                
+
             },
             Toyota: {
                 logo: '/Images/Brands/Toyota.png',
-                
+
             },
             Subaru: {
                 logo: '/Images/Brands/Subaru.png',
-                
+
             },
             Mitsubishi: {
                 logo: '/Images/Brands/Mitsubishi.png',
-                
+
             },
             Ford: {
                 logo: '/Images/Brands/Ford.png',
-                
+
             },
             Chevrolet: {
                 logo: '/Images/Brands/Chevrolet.png',
-                
+
             },
             Dodge: {
                 logo: '/Images/Brands/Dodge.png',
-                
+
             },
             Audi: {
                 logo: '/Images/Brands/Audi.png',
-                
+
             },
             BMW: {
                 logo: '/Images/Brands/BMW.png',
-                
+
             },
             Mercedes: {
                 logo: '/Images/Brands/Mercedes.png',
-                
+
             },
             Aston: {
                 logo: '/Images/Brands/Aston.png',
-                
+
             },
             Bentley: {
                 logo: '/Images/Brands/Bentley.png',
-                
+
             },
             Rolls: {
                 logo: '/Images/Brands/Rolls-Royce.png',
-                
+
             },
             Pagani: {
                 logo: '/Images/Brands/Pagani.png',
-                
+
             },
             Datsun: {
                 logo: '/Images/Brands/Datsun.png',
-                
+
             },
             Mazda: {
                 logo: '/Images/Brands/Mazda.png',
-                
+
             },
             Honda: {
                 logo: '/Images/Brands/Honda.png',
-                
+
             },
             Lotus: {
                 logo: '/Images/Brands/Lotus.png',
-                
+
             },
             Caterham: {
                 logo: '/Images/Brands/Caterham.png',
-                
+
             },
             Ariel: {
                 logo: '/Images/Brands/Ariel.png',
-                
+
             },
             Radical: {
                 logo: '/Images/Brands/Radical.png',
-                
+
             }
         };
 
