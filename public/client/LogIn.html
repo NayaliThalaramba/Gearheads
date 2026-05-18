@@ -31,18 +31,42 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Login Modal -->
     <div class="modal">
+
         <div class="modal-content">
+
             <span class="close-btn" onclick="closeModal()">×</span>
-            <h2>Login</h2>
-            <form onsubmit="submitLogin(event)" style="display: block; margin: auto; width: 70%; padding-bottom: 25px;">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit" class="submit-btn">Submit</button>
+
+            <h2 class="login-title">LOGIN TO GEARHEADS</h2>
+
+            <div class="divider"></div>
+
+            <form onsubmit="submitLogin(event)">
+
+                <label for="username">Driver ID</label>
+                <input type="text" id="username" required>
+
+                <label for="password">Security Key</label>
+                <input type="password" id="password" required>
+
+                <div class="extra-options">
+                    <label class="remember">
+                        <input type="checkbox">
+                        Keep me signed in
+                    </label>
+
+                    <span class="forgot-password">
+                        Forgot key?
+                    </span>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    START ENGINE
+                </button>
+
             </form>
+
         </div>
     </div>
 </body>
@@ -90,107 +114,315 @@
         z-index: 2;
     }
 
-    /* Buttons */
+    /* BUTTON CONTAINER */
+
     .buttons {
-        margin-bottom: 50px;
+        margin-bottom: 55px;
         display: flex;
-        gap: 20px;
-        z-index: 1;
+        gap: 30px;
+        z-index: 5;
     }
+
+    /* BUTTON STYLE */
 
     .action-btn {
-        padding: 15px 30px;
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: #000;
-        background-color: #a4a0a0;
-        border: none;
-        border-radius: 5px;
+        position: relative;
+
+        width: 250px;
+        height: 70px;
+
+        border: 1px solid rgba(255, 191, 73, .2);
+        border-radius: 22px;
+
+        background:
+            linear-gradient(145deg,
+                rgba(18, 18, 18, .92),
+                rgba(38, 38, 38, .95));
+
+        color: #f4d28b;
+
+        font-family: Girassol;
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+
         cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        width: 15vw;
+
+        overflow: hidden;
+
+        transition:
+            transform .35s ease,
+            box-shadow .35s ease,
+            border .35s ease;
     }
+
+    /* subtle metallic shine */
+
+    .action-btn::before {
+        content: "";
+
+        position: absolute;
+        top: -120%;
+        left: -20%;
+
+        width: 60%;
+        height: 300%;
+
+        background:
+            linear-gradient(rgba(255, 255, 255, .2),
+                rgba(255, 255, 255, 0));
+
+        transform: rotate(25deg);
+
+        transition: .5s ease;
+    }
+
+    /* glow line */
+
+    .action-btn::after {
+        content: "";
+
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+
+        width: 0%;
+        height: 2px;
+
+        background: #dca13d;
+
+        transform: translateX(-50%);
+        transition: .35s ease;
+    }
+
+    /* hover */
 
     .action-btn:hover {
-        transform: scale(1.1);
-        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
-        background: linear-gradient(to right, rgb(253, 252, 202), rgba(195, 160, 5, 0.868), rgba(216, 141, 21, 0.804));
+        transform:
+            translateY(-6px) scale(1.03);
+
+        border:
+            1px solid rgba(255, 191, 73, .45);
+
+        box-shadow:
+            0 0 30px rgba(255, 180, 0, .18),
+            0 18px 45px rgba(0, 0, 0, .45);
     }
 
-    /* Modal */
+    /* animated shine */
+
+    .action-btn:hover::before {
+        left: 120%;
+    }
+
+    /* underline glow */
+
+    .action-btn:hover::after {
+        width: 80%;
+    }
+
+    /* ===== MODAL OVERLAY ===== */
+
     .modal {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
+        inset: 0;
+        background: rgba(0, 0, 0, 0.82);
+
+        backdrop-filter: blur(8px);
+
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 3;
+
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+
+        transition: 0.35s ease;
+        z-index: 100;
     }
 
-    .modal-content {
-        background: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        width: 40%;
-        position: relative;
-    }
-
-    .modal h2 {
-        margin-bottom: 20px;
-    }
-
-    .modal label {
-        display: block;
-        margin-bottom: 5px;
-        text-align: left;
-    }
-
-    .modal input {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-
-    .submit-btn {
-        padding: 10px 40px;
-        border: none;
-        background: #000;
-        color: #fff;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 20px;
-    }
-
-    .submit-btn:hover {
-        background: #333;
-    }
-
-    .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 30px;
-        font-size: 2rem;
-        color: #333;
-        cursor: pointer;
-    }
-
-    .close-btn:hover {
-        color: red;
-    }
+    /* ===== SHOW MODAL ===== */
 
     .modal.show {
         opacity: 1;
         visibility: visible;
+    }
+
+    /* ===== DASHBOARD PANEL ===== */
+
+    .modal-content {
+        width: 420px;
+
+        background:
+            linear-gradient(145deg,
+                #0f0f0f,
+                #1c1c1c);
+
+        border-radius: 28px;
+
+        padding: 45px;
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        box-shadow:
+            0 0 30px rgba(255, 180, 0, 0.18),
+            0 12px 50px rgba(0, 0, 0, 0.75);
+
+        color: white;
+
+        position: relative;
+
+        transform: translateY(80px);
+        transition: transform .4s ease;
+    }
+
+    /* slide-up animation */
+
+    .modal.show .modal-content {
+        transform: translateY(0);
+    }
+
+    /* ===== TITLE ===== */
+
+    .login-title {
+        text-align: center;
+        font-size: 2rem;
+        letter-spacing: 3px;
+        color: #f4d28b;
+        margin-bottom: 18px;
+    }
+
+    /* ===== DIVIDER ===== */
+
+    .divider {
+        height: 1px;
+        background: rgba(255, 191, 73, .3);
+        margin-bottom: 30px;
+    }
+
+    /* ===== LABELS ===== */
+
+    .modal label {
+        display: block;
+        text-align: left;
+        margin-bottom: 10px;
+        color: #d9d9d9;
+        letter-spacing: 1px;
+    }
+
+    /* ===== INPUTS ===== */
+
+    .modal input[type="text"],
+    .modal input[type="password"] {
+
+        width: 100%;
+        box-sizing: border-box;
+
+        padding: 16px;
+
+        border-radius: 14px;
+
+        border: 1px solid rgba(255, 191, 73, .2);
+
+        background: rgba(255, 255, 255, 0.06);
+
+        color: white;
+
+        margin-bottom: 22px;
+
+        outline: none;
+
+        font-size: 1rem;
+        font-family: Girassol;
+    }
+
+    /* glow on focus */
+
+    .modal input:focus {
+        border-color: #dca13d;
+
+        box-shadow:
+            0 0 15px rgba(255, 180, 0, 0.3);
+    }
+
+    /* ===== EXTRA OPTIONS ===== */
+
+    .extra-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        font-size: .85rem;
+        color: #bdbdbd;
+
+        margin-bottom: 30px;
+    }
+
+    .remember {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .forgot-password {
+        color: #dca13d;
+        cursor: pointer;
+    }
+
+    /* ===== BUTTON ===== */
+
+    .submit-btn {
+        width: 100%;
+
+        padding: 18px;
+
+        border: none;
+
+        border-radius: 18px;
+
+        background:
+            linear-gradient(90deg,
+                #7a4a00,
+                #dca13d,
+                #8c5600);
+
+        color: black;
+
+        font-family: Girassol;
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+
+        cursor: pointer;
+
+        transition: .3s ease;
+    }
+
+    /* hover glow */
+
+    .submit-btn:hover {
+        transform: translateY(-2px);
+
+        box-shadow:
+            0 0 25px rgba(255, 180, 0, .45);
+
+        filter: brightness(1.08);
+    }
+
+    /* ===== CLOSE BUTTON ===== */
+
+    .close-btn {
+        position: absolute;
+        top: 18px;
+        right: 25px;
+
+        color: rgba(255, 255, 255, 0.7);
+
+        font-size: 2rem;
+
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        color: #dca13d;
     }
 </style>
 
@@ -205,10 +437,29 @@
         document.querySelector('.modal').classList.remove('show');
     }
 
-    // Submit the login form
     function submitLogin(event) {
-        event.preventDefault(); // Prevent actual form submission
-        window.location.href = 'index.html'; // Redirect to index.html
+        event.preventDefault();
+
+        const username =
+            document.getElementById("username").value;
+
+        const password =
+            document.getElementById("password").value;
+
+        const savedUser =
+            localStorage.getItem("gearheadsUser");
+
+        const savedPassword =
+            localStorage.getItem("gearheadsPassword");
+
+        if (
+            username === savedUser &&
+            password === savedPassword
+        ) {
+            window.location.href = "index.html";
+        } else {
+            alert("Invalid Driver ID or Security Key");
+        }
     }
 
     // Dim the headlights
@@ -227,7 +478,7 @@
 
     // Navigate to the Create Profile page
     function navigateToCreateProfile() {
-        window.location.href = 'CreateProfile.html'; 
+        window.location.href = 'CreateProfile.html';
     }
 
 </script>
