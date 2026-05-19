@@ -88,34 +88,17 @@
 
             </div>
         </div>
+        <div class="profile-card">
 
-        <!-- Background Grid -->
-        <div class="background-grid">
-            <!-- 24 cells (6 columns x 4 rows) -->
-            <div class="grid-item" style="--delay: 0.1s;"><img src="/images//A.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 0.2s;"><img src="/images//B.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 0.3s;"><img src="/images//C.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 0.4s;"><img src="/images//D.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 0.5s;"><img src="/images//A.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 0.6s;"><img src="/images//B.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 0.7s;"><img src="/images//C.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 0.8s;"><img src="/images//D.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 0.9s;"><img src="/images//A.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 1s;"><img src="/images//B.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 1.1s;"><img src="/images//C.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 1.2s;"><img src="/images//D.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 1.3s;"><img src="/images//A.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 1.4s;"><img src="/images//B.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 1.5s;"><img src="/images//C.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 1.6s;"><img src="/images//D.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 1.7s;"><img src="/images//A.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 1.8s;"><img src="/images//B.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 1.9s;"><img src="/images//C.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 2s;"><img src="/images//D.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 2.1s;"><img src="/images//A.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 2.2s;"><img src="/images//B.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 2.3s;"><img src="/images//C.JPG" alt=""></div>
-            <div class="grid-item" style="--delay: 2.4s;"><img src="/images//D.JPG" alt=""></div>
+            <!-- hidden car image -->
+            <div class="car-scene"></div>
+
+            <!-- reveal layer -->
+            <div class="reveal-layer" id="reveal-layer"></div>
+
+            <!-- helmet image -->
+            <img src="/images/helmet_driver.JPG" alt="Driver" class="helmet-image">
+
         </div>
 
         <div class="Options">
@@ -198,35 +181,6 @@
 
             document.getElementById("welcome-text")
                 .textContent = `Welcome ${username}!`;
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const items = document.querySelectorAll('.grid-item');
-            const options = document.querySelector('.Options');
-            const columns = 6;
-
-            // Initialize Options to be hidden
-            options.style.opacity = '0';
-
-            // Set the animation delay for each grid item
-            items.forEach((item, index) => {
-                const row = Math.floor(index / columns);
-                const col = index % columns;
-                item.style.setProperty('--delay', `${(row + col) * 0.2}s`);
-            });
-
-            // Track when all grid items have finished their animation
-            let loadedItems = 0;
-            items.forEach((item) => {
-                item.addEventListener('animationend', () => {
-                    loadedItems++;
-                    if (loadedItems === items.length) {
-                        // Show the Options section once all animations are done
-                        options.style.transition = 'opacity 1s ease-in-out';
-                        options.style.opacity = '1';
-                    }
-                });
-            });
         });
 
 
@@ -385,6 +339,46 @@
             });
         });
 
+        const revealLayer = document.getElementById("reveal-layer");
+        const card = document.querySelector(".profile-card");
+
+        // Hide reveal layer initially
+        revealLayer.style.opacity = "0";
+
+        // When mouse enters card → enable reveal layer
+        card.addEventListener("mouseenter", () => {
+            revealLayer.style.opacity = "1";
+        });
+
+        // Mouse move reveal effect
+        document.addEventListener("mousemove", (e) => {
+
+            const rect = card.getBoundingClientRect();
+
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            if (
+                x >= 0 &&
+                y >= 0 &&
+                x <= rect.width &&
+                y <= rect.height
+            ) {
+
+                revealLayer.style.webkitMaskImage = `
+        radial-gradient(
+            circle 200px at ${x}px ${y}px,
+            rgba(0,0,0,1) 0%,
+            rgba(0,0,0,0.85) 35%,
+            rgba(0,0,0,0.4) 65%,
+            transparent 100%
+        )`;
+
+                revealLayer.style.maskImage =
+                    revealLayer.style.webkitMaskImage;
+            }
+        });
+
 
     </script>
 
@@ -516,27 +510,30 @@
         flex-direction: column;
     }
 
-    /* Top Left Section */
     .top-left {
         position: absolute;
-        top: 10px;
-        left: 10px;
+        top: 20px;
+        left: 20px;
+
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
+
         color: white;
+        z-index: 100;
     }
 
     .user-image {
-        width: 100px;
-        height: 100px;
+        width: 65px;
+        height: 65px;
         border-radius: 50%;
-        margin-left: 30px;
+        object-fit: cover;
     }
 
     .welcome-text {
-        font-size: 5.5rem;
+        font-size: 3rem;
         font-weight: bold;
+        margin: 0;
     }
 
     /* Background Grid */
@@ -567,15 +564,18 @@
     }
 
     .Options {
+        position: absolute;
+        bottom: 35px;
+        left: 50%;
+        transform: translateX(-50%);
+
         display: flex;
-        flex-direction: row;
-        text-align: center;
-        padding: 0 12%;
-        margin-top: 30%;
-        gap: 15%;
-        width: 80%;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
+        gap: 25px;
+        width: 70%;
+        justify-content: center;
+
+        opacity: 1;
+        z-index: 50;
     }
 
     .Fav img {
@@ -608,40 +608,30 @@
         text-align: left;
     }
 
-    .Fav {
+    .Fav,
+    .MyForum,
+    .Edit,
+    .Logout {
         display: grid;
-        background-color: #ffffff;
-        height: 8vh;
-        width: 25vw;
-        border-radius: 15px;
-        gap: 1%;
-        text-align: center;
-        grid-template-columns: 1fr 2fr;
-        opacity: 0.9;
-    }
+        background: #ffffff;
 
-    .MyForum {
-        display: grid;
-        background-color: #ffffff;
         height: 8vh;
         width: 25vw;
-        border-radius: 15px;
-        gap: 1%;
-        text-align: center;
-        grid-template-columns: 1fr 2fr;
-        opacity: 0.9;
-    }
 
-    .Edit {
-        display: grid;
-        background-color: #ffffff;
-        height: 8vh;
-        width: 25vw;
         border-radius: 15px;
         gap: 1%;
         text-align: center;
         grid-template-columns: 1fr 2fr;
-        opacity: 0.9;
+
+        opacity: 0.95;
+        cursor: pointer;
+
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease,
+            border-color 0.3s ease;
+
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     /* Animations */
@@ -853,27 +843,6 @@
         margin-right: 5px;
     }
 
-    .Logout {
-        display: grid;
-        background: #ffffff;
-        border: 1px solid rgba(255, 70, 70, 0.2);
-
-        height: 8vh;
-        width: 25vw;
-
-        border-radius: 15px;
-        gap: 1%;
-        text-align: center;
-        grid-template-columns: 1fr 2fr;
-
-        opacity: 0.95;
-        cursor: pointer;
-
-        transition:
-            transform 0.3s ease,
-            box-shadow 0.3s ease,
-            border-color 0.3s ease;
-    }
 
     .Logout img {
         height: auto;
@@ -887,6 +856,36 @@
         color: black;
     }
 
+    .Fav:hover {
+        transform: translateY(-5px);
+
+        border-color: rgba(255, 90, 90, 0.7);
+
+        box-shadow:
+            0 0 20px rgba(255, 70, 70, 0.35),
+            0 0 50px rgba(255, 50, 50, 0.15);
+    }
+
+    .MyForum:hover {
+        transform: translateY(-5px);
+
+        border-color: rgba(255, 90, 90, 0.7);
+
+        box-shadow:
+            0 0 20px rgba(255, 70, 70, 0.35),
+            0 0 50px rgba(255, 50, 50, 0.15);
+    }
+
+    .Edit:hover {
+        transform: translateY(-5px);
+
+        border-color: rgba(255, 90, 90, 0.7);
+
+        box-shadow:
+            0 0 20px rgba(255, 70, 70, 0.35),
+            0 0 50px rgba(255, 50, 50, 0.15);
+    }
+
     .Logout:hover {
         transform: translateY(-5px);
 
@@ -895,6 +894,83 @@
         box-shadow:
             0 0 20px rgba(255, 70, 70, 0.35),
             0 0 50px rgba(255, 50, 50, 0.15);
+    }
+
+    .Gear-NavBar {
+        position: absolute;
+        z-index: 999;
+    }
+
+
+    /* =========================
+   PROFILE HERO CARD
+========================= */
+
+    .profile-card {
+        position: absolute;
+
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 90vw;
+        height: 75vh;
+
+        border-radius: 28px;
+        overflow: hidden;
+
+        background: black;
+
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        box-shadow:
+            0 0 40px rgba(255, 255, 255, 0.08);
+
+        z-index: 1;
+    }
+
+    /* hidden car scene */
+    .car-scene {
+        position: absolute;
+        inset: 0;
+
+        background-image: url('/images/car-scene.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* helmet image visible */
+    .helmet-image {
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        z-index: 4;
+    }
+
+    /* reveal brush */
+
+    .reveal-layer {
+        position: absolute;
+        inset: 0;
+
+        z-index: 5;
+
+        background-image: url('/images/car-scene.jpg');
+        background-size: cover;
+        background-position: center;
+
+        pointer-events: none;
+
+        opacity: 0;
+        transition: opacity 0.25s ease;
+
+        mask-repeat: no-repeat;
+        -webkit-mask-repeat: no-repeat;
     }
 </style>
 
