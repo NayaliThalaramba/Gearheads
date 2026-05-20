@@ -135,10 +135,14 @@ body::before {
 /* Carousel styling */
 .carousel {
     position: absolute;
-    top: 55%;
+    top: 56%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30%;
+
+    width: 58%;
+    /* was 30% */
+    max-width: 1150px;
+    /* prevents it becoming huge */
     overflow: hidden;
 }
 
@@ -153,45 +157,6 @@ body::before {
     gap: 10px;
 }
 
-/* .carousel-slide {
-    flex: 0 0 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    height: 200px;
-    color: white;
-    font-family: 'Girassol', sans-serif;
-    text-shadow: 2px 2px 5px black;
-} */
-
-/* Add images for slides */
-/* .slide-1 {
-    background-image: url('Images/R34.jpeg');
-}
-
-.slide-2 {
-    background-image: url('Images/Rolls-Royce-Phantom.jpeg');
-}
-
-.slide-3 {
-    background-image: url('Images/HummerEv-2024.jpeg');
-}
-
-.slide-4 {
-    background-image: url('Images/Ford-Ranger-Raptor-2024.webp');
-}
-
-.slide-5 {
-    background-image: url('Images/volkswagen-golf.webp');
-}
-
-.slide-6 {
-    background-image: url('Images/Maserati-Granturismo-Folgore.jpeg');
-} */
 
 .carousel-button {
     position: absolute;
@@ -207,19 +172,13 @@ body::before {
 }
 
 .carousel-button-left {
-    left: 30%;
+    left: 18%;
 }
 
 .carousel-button-right {
-    right: 27%;
+    right: 17%;
 }
 
-/* .carousel-item {
-    color: #ffffff;
-    font-size: 2.5rem;
-    border: #000000;
-    text-decoration: none;
-} */
 
 .carousel-slide {
     display: flex;
@@ -232,46 +191,38 @@ body::before {
     color: white;
     font-family: 'Girassol', sans-serif;
     flex: 0 0 100%;
-    height: 300px;
+    height: auto;
     text-shadow: 2px 2px 5px black;
 }
 
 .slide-image {
     width: 100%;
-    height: 300px;
-    border-radius: 15px;
-    background-size: cover;
-    background-position: center;
+    height: 470px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background:
+        rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(4px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.slide-1 .slide-image {
-    background-image: url('Images/EC-Sports.png');
-}
+/* 3D model */
+.car-model {
+    width: 100%;
+    height: 100%;
 
-.slide-2 .slide-image {
-    background-image: url('Images/EC-Luxury.png');
-}
-
-.slide-3 .slide-image {
-    background-image: url('Images/EC-SUV.png');
-}
-
-.slide-4 .slide-image {
-    background-image: url('Images/EC-Truck(1).png');
-}
-
-.slide-5 .slide-image {
-    background-image: url('Images/EC-Affordable(1).png');
-}
-
-.slide-6 .slide-image {
-    background-image: url('Images/EC-Electric.png');
+    background: transparent;
 }
 
 .carousel-item {
     margin-top: 10px;
     color: #ffffff;
-    font-size: 2.5rem;
+    font-size: 3rem;
     text-decoration: none;
     text-align: center;
     transition: font-size 0.3s ease-in-out;
@@ -280,4 +231,39 @@ body::before {
 .carousel-slide:hover .carousel-item {
     font-size: 3.5rem;
     transition: font-size 0.3s ease-in-out;
+}
+
+.rotate-hint {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+
+    padding: 8px 14px;
+    border-radius: 20px;
+
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+
+    animation: fadePulse 2s infinite;
+}
+
+.slide-image {
+    position: relative;
+}
+
+@keyframes fadePulse {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
 }

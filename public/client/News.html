@@ -4,400 +4,886 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News</title>
+    <title>News & Reviews</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
-        href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Girassol&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Pacifico&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:wght@400;700&family=Girassol&family=Merriweather:wght@300;400;700&display=swap"
         rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Girassol", serif;
+            background: #050505;
+            color: white;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* PREMIUM BACKGROUND */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background:
+                linear-gradient(rgba(0, 0, 0, .82),
+                    rgba(0, 0, 0, .94)),
+                url('/images/HeroNews.jpg');
+
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px);
+            transform: scale(1.08);
+
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background:
+                radial-gradient(circle at top,
+                    rgba(255, 255, 255, .08),
+                    transparent 35%);
+
+            z-index: -1;
+        }
+
+        /* PAGE WRAPPER */
+        .page-container {
+            width: 88%;
+            margin: auto;
+            padding-top: 120px;
+            padding-bottom: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* HERO */
+        .hero-news {
+            position: relative;
+            height: 650px;
+            border-radius: 35px;
+            overflow: hidden;
+            margin-top: -40px;
+            margin-bottom: 40px;
+
+            box-shadow:
+                0 0 60px rgba(255, 255, 255, .06);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(to top,
+                    rgba(0, 0, 0, .95),
+                    rgba(0, 0, 0, .3),
+                    transparent);
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 55px;
+            left: 55px;
+            max-width: 720px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+
+            padding: 10px 22px;
+            border-radius: 40px;
+
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .15);
+
+            backdrop-filter: blur(20px);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin: 20px 0;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, .82);
+        }
+
+        .hero-button {
+            margin-top: 25px;
+
+            border: none;
+            border-radius: 50px;
+
+            padding: 16px 34px;
+            cursor: pointer;
+
+            font-family: Girassol;
+            font-size: 1rem;
+
+            color: white;
+
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .14);
+
+            backdrop-filter: blur(20px);
+
+            transition: .3s ease;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, .18);
+        }
+
+        /* NEWS TICKER */
+        .ticker-wrapper {
+            overflow: hidden;
+            border-radius: 24px;
+            padding: 20px 0;
+            margin-bottom: 35px;
+
+            background: rgba(255, 255, 255, .06);
+
+            border: 1px solid rgba(255, 255, 255, .1);
+
+            backdrop-filter: blur(20px);
+        }
+
+        .ticker {
+            white-space: nowrap;
+            animation: ticker 26s linear infinite;
+            font-size: 2rem;
+        }
+
+        @keyframes ticker {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* FILTER CHIPS */
+        .filter-section {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .chip {
+            border: none;
+            cursor: pointer;
+
+            padding: 12px 26px;
+            border-radius: 50px;
+
+            font-family: Girassol;
+            color: white;
+            font-size: 1rem;
+
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .1);
+
+            backdrop-filter: blur(20px);
+
+            transition: .3s ease;
+        }
+
+        .chip:hover,
+        .chip.active {
+            transform: translateY(-4px);
+
+            background:
+                rgba(255, 255, 255, .18);
+
+            box-shadow:
+                0 0 20px rgba(255, 255, 255, .08);
+        }
+
+        /* MAGAZINE GRID */
+        .news-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 22px;
+        }
+
+        .side-column {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 22px;
+        }
+
+        .news-card {
+            position: relative;
+            overflow: hidden;
+
+            border-radius: 28px;
+            cursor: pointer;
+
+            min-height: 320px;
+
+            background: rgba(255, 255, 255, .08);
+
+            border:
+                1px solid rgba(255, 255, 255, .08);
+
+            backdrop-filter: blur(20px);
+
+            transition: .35s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .news-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            transition: .6s ease;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(to top,
+                    rgba(0, 0, 0, .95),
+                    rgba(0, 0, 0, .2),
+                    transparent);
+        }
+
+        .news-content {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            right: 25px;
+        }
+
+        .category-tag {
+            display: inline-block;
+
+            margin-bottom: 14px;
+
+            padding: 8px 18px;
+            border-radius: 40px;
+
+            background:
+                rgba(255, 255, 255, .12);
+
+            border:
+                1px solid rgba(255, 255, 255, .12);
+        }
+
+        .news-content h2 {
+            font-size: 1.6rem;
+            margin: 0 0 10px;
+        }
+
+        .news-content p {
+            color: rgba(255, 255, 255, .8);
+        }
+
+        .large-card {
+            min-height: 670px;
+        }
+
+        .medium-card {
+            min-height: 324px;
+        }
+
+        .wide-card {
+            margin-top: 24px;
+            min-height: 450px;
+        }
+
+        /* NAVBAR ANIMATIONS */
+        @keyframes moveToDrives {
+            0% {
+                top: 136px;
+                left: 66px;
+            }
+
+            25% {
+                top: 118px;
+                left: 66px;
+            }
+
+            50% {
+                top: 118px;
+                left: 168px;
+            }
+
+            100% {
+                top: 155px;
+                left: 168px;
+            }
+        }
+
+        @keyframes moveToHome {
+            0% {
+                top: 136px;
+                left: 66px;
+            }
+
+            50% {
+                top: 118px;
+                left: 66px;
+            }
+
+            100% {
+                top: 75px;
+                left: 62px;
+            }
+        }
+
+        @keyframes moveToCommunity {
+            0% {
+                top: 136px;
+                left: 66px;
+            }
+
+            25% {
+                top: 118px;
+                left: 66px;
+            }
+
+            50% {
+                top: 118px;
+                left: 168px;
+            }
+
+            100% {
+                top: 88px;
+                left: 166px;
+            }
+        }
+
+        @keyframes moveToExplore {
+            0% {
+                top: 136px;
+                left: 66px;
+            }
+
+            25% {
+                top: 118px;
+                left: 66px;
+            }
+
+            50% {
+                top: 118px;
+                left: 118px;
+            }
+
+            100% {
+                top: 45px;
+                left: 118px;
+            }
+        }
+
+        @keyframes moveToProfile {
+            0% {
+                top: 136px;
+                left: 66px;
+            }
+
+            50% {
+                top: 118px;
+                left: 118px;
+            }
+
+            100% {
+                top: 185px;
+                left: 118px;
+            }
+        }
+
+        @keyframes moveToNews {
+            0% {
+                top: 136px;
+                left: 66px;
+            }
+
+            100% {
+                top: 136px;
+                left: 66px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="Gear-NavBar" style="width: 21%; height: 293px; left: 1100px; top: 42px; position: absolute">
+
+    <div class="Gear-NavBar" style="width:21%; height:293px; left:1100px; top:20px; position:fixed; z-index:9999;">
 
         <div class="Ellipse1"
-            style="width: 299px; height: 293px; left: 0px; top: 0px; position: absolute; background: black; border-radius: 9999px; box-shadow: 4px 4px 28px #ffffff;">
+            style="width:299px;height:293px;position:absolute;background:black;border-radius:9999px;box-shadow:4px 4px 28px #ffffff;">
 
             <div class="Ellipse2"
-                style="width: 248px; height: 242px; left: 26px; top: 28px; position: absolute; background: black; border-radius: 9999px; border: 1px white solid">
+                style="width:248px;height:242px;left:26px;top:28px;position:absolute;background:black;border-radius:9999px;border:1px white solid">
 
                 <div class="Ellipse3"
-                    style="width: 260px; height: 255px; left: -7px; top: -8px; position: absolute; background: rgba(217, 217, 217, 0); border-radius: 9999px; border: 1px white solid">
+                    style="width:260px;height:255px;left:-7px;top:-8px;position:absolute;border-radius:9999px;border:1px white solid">
 
                     <div class="LineBox" style="top:-10px; left:-30px;">
                         <div class="Line1"
-                            style="width: 140px; height: 0px; left: 62px; top: 131px; position: absolute; background: white; border: 1px white solid">
+                            style="width:140px;height:0px;left:62px;top:131px;position:absolute;border:1px white solid">
                         </div>
+
                         <div class="Line2"
-                            style="width: 57px; height: 0px; left: 78px; top: 155px; position: absolute; transform: rotate(-90deg); transform-origin: 0 0; background: white; border: 1px white solid">
+                            style="width:57px;height:0px;left:78px;top:155px;position:absolute;transform:rotate(-90deg);transform-origin:0 0;border:1px white solid">
                         </div>
+
                         <div class="Line3"
-                            style="width: 160px; height: 0px; left: 130px; top: 210px; position: absolute; transform: rotate(-90deg); transform-origin: 0 0; background: white; border: 1px white solid">
+                            style="width:160px;height:0px;left:130px;top:210px;position:absolute;transform:rotate(-90deg);transform-origin:0 0;border:1px white solid">
                         </div>
+
                         <div class="Line4"
-                            style="width: 87px; height: 0px; left: 180px; top: 180px; position: absolute; transform: rotate(-90deg); transform-origin: 0 0; background: white; border: 1px white solid">
+                            style="width:87px;height:0px;left:180px;top:180px;position:absolute;transform:rotate(-90deg);transform-origin:0 0;border:1px white solid">
                         </div>
                     </div>
-                    <div class="Home" id="home"
-                        style="width: 39px; height: 14px; left: 62px; top: 75px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Girassol; font-weight: 400; word-wrap: break-word">
+
+                    <div style="left:62px;top:75px;position:absolute;">
                         <a href="/index.html" class="nav-link" data-target="home"
-                            style="text-decoration: none; color: white;">Home</a>
+                            style="text-decoration:none;color:white;">
+                            Home
+                        </a>
                     </div>
-                    <div class="ExlporeCars" id="explore"
-                        style="width: 85px; height: 14px; left: 95px; top: 25px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Girassol; font-weight: 400; word-wrap: break-word">
+
+                    <div style="left:95px;top:25px;position:absolute;">
                         <a href="/ExploreCars.html" class="nav-link" data-target="explore"
-                            style="text-decoration: none; color: white;">Explore Cars</a>
+                            style="text-decoration:none;color:white;">
+                            Explore Cars
+                        </a>
                     </div>
-                    <div class="Community" id="community"
-                        style="width: 80px; height: 14px; left: 145px; top: 70px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Girassol; font-weight: 400; word-wrap: break-word">
+
+                    <div style="left:145px;top:70px;position:absolute;">
                         <a href="/Community.html" class="nav-link" data-target="community"
-                            style="text-decoration: none; color: white;">Community</a>
+                            style="text-decoration:none;color:white;">
+                            Community
+                        </a>
                     </div>
-                    <div class="Profile" id="profile"
-                        style="width: 47px; height: 14px; left: 110px; top: 210px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Girassol; font-weight: 400; word-wrap: break-word">
+
+                    <div style="left:110px;top:210px;position:absolute;">
                         <a href="/Profile.html" class="nav-link" data-target="profile"
-                            style="text-decoration: none; color: white;">Profile</a>
+                            style="text-decoration:none;color:white;">
+                            Profile
+                        </a>
                     </div>
-                    <div class="Drives" id="drives"
-                        style="width: 46px; height: 14px; left: 160px; top: 180px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Girassol; font-weight: 400; word-wrap: break-word">
+
+                    <div style="left:160px;top:180px;position:absolute;">
                         <a href="/Drives.html" class="nav-link" data-target="drives"
-                            style="text-decoration: none; color: white;">Drives</a>
+                            style="text-decoration:none;color:white;">
+                            Drives
+                        </a>
                     </div>
-                    <div class="NewsReviews" id="news"
-                        style="width: 62px; height: 47px; left: 51px; top: 161px; position: absolute; text-align: center; color: white; font-size: 15px; font-family: Girassol; font-weight: 400; word-wrap: break-word">
+
+                    <div style="left:51px;top:161px;position:absolute;text-align:center;">
                         <a href="/News.html" class="nav-link" data-target="news"
-                            style="text-decoration: none; color: white;">News<br />&<br />Reviews</a>
+                            style="text-decoration:none;color:white;">
+                            News<br>&<br>Reviews
+                        </a>
                     </div>
-                    <div class="GearPoint" id="gear-point"
-                        style="width: 25px; height: 25px; left: 65px; top: 135px; position: absolute; background: white; border-radius: 9999px; border: 1px black solid">
+
+                    <div id="gear-point"
+                        style="width:25px;height:25px;left:65px;top:135px;position:absolute;background:white;border-radius:9999px;border:1px black solid;">
                     </div>
 
                 </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="page-container">
+
+        <!-- HERO -->
+        <section class="hero-news">
+
+            <img src="/images/McLaren-W1.JPG" class="hero-image">
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+
+                <span class="hero-tag">
+                    FEATURED STORY
+                </span>
+
+                <h1>
+                    1258-HP McLaren W1 Is
+                    McLaren’s Wildest Machine Yet
+                </h1>
+
+                <p class="hero-description">
+                    Formula-1 inspired aerodynamics,
+                    hybrid insanity and cinematic speed.
+                </p>
+
+                <button class="hero-button">
+                    Read Story →
+                </button>
+
+            </div>
+        </section>
+
+        <!-- TICKER -->
+        <div class="ticker-wrapper">
+            <div class="ticker">
+                🔥 Cybertruck receives FSD rollout •
+                Porsche reveals next-gen EV tech •
+                Vintage classics explode in auction value •
+                McLaren W1 shocks the supercar world •
+                Bobby Allison remembered •
+            </div>
+        </div>
+
+        <!-- FILTERS -->
+        <section class="filter-section">
+
+            <button class="chip active" data-category="all">
+                All
+            </button>
+
+            <button class="chip" data-category="supercar">
+                Supercars
+            </button>
+
+            <button class="chip" data-category="ev">
+                EV
+            </button>
+
+            <button class="chip" data-category="luxury">
+                Luxury
+            </button>
+
+            <button class="chip" data-category="vintage">
+                Vintage
+            </button>
+
+            <button class="chip" data-category="motorsport">
+                Motorsport
+            </button>
+
+        </section>
+
+        <!-- MAGAZINE GRID -->
+        <section class="news-layout">
+
+            <!-- BIG FEATURE -->
+            <article class="news-card large-card" data-category="supercar">
+
+                <img src="/images/mclaren.JPG" class="news-image">
+
+                <div class="overlay"></div>
+
+                <div class="news-content">
+
+                    <span class="category-tag">
+                        Supercar
+                    </span>
+
+                    <h2>
+                        1258-HP McLaren W1 Is
+                        the P1’s Successor
+                    </h2>
+
+                    <p>
+                        The most powerful McLaren ever built.
+                    </p>
+
+                </div>
+            </article>
+
+            <!-- RIGHT COLUMN -->
+            <div class="side-column">
+
+                <article class="news-card medium-card" data-category="ev">
+
+                    <img src="/images/Cybertruck.JPG" class="news-image">
+
+                    <div class="overlay"></div>
+
+                    <div class="news-content">
+                        <span class="category-tag">
+                            EV
+                        </span>
+
+                        <h2>
+                            Cybertruck Finally Gets FSD
+                        </h2>
+                    </div>
+                </article>
+
+                <article class="news-card medium-card" data-category="luxury">
+
+                    <img src="/images/Ford-Expedition.JPG" class="news-image">
+
+                    <div class="overlay"></div>
+
+                    <div class="news-content">
+
+                        <span class="category-tag">
+                            Luxury SUV
+                        </span>
+
+                        <h2>
+                            2025 Ford Expedition
+                            Tremor Arrives
+                        </h2>
+
+                    </div>
+                </article>
 
             </div>
 
+        </section>
 
-        </div>
+        <!-- SMALL GRID -->
+        <section class="news-grid">
+
+            <article class="news-card" data-category="vintage">
+
+                <img src="/images/Mazda-RX8.JPG" class="news-image">
+
+                <div class="overlay"></div>
+
+                <div class="news-content">
+
+                    <span class="category-tag">
+                        Vintage
+                    </span>
+
+                    <h2>
+                        Final-Year RX-8 Returns
+                    </h2>
+
+                </div>
+            </article>
+
+            <article class="news-card" data-category="motorsport">
+
+                <img src="/images/Bernie.JPG" class="news-image">
+
+                <div class="overlay"></div>
+
+                <div class="news-content">
+
+                    <span class="category-tag">
+                        Motorsport
+                    </span>
+
+                    <h2>
+                        Bernie Ecclestone’s
+                        Cars Hit Market
+                    </h2>
+
+                </div>
+            </article>
+
+            <article class="news-card" data-category="luxury">
+
+                <img src="/images/LesIntouchables.png" class="news-image">
+
+                <div class="overlay"></div>
+
+                <div class="news-content">
+
+                    <span class="category-tag">
+                        Luxury
+                    </span>
+
+                    <h2>
+                        French EV Design
+                        Still Has Soul
+                    </h2>
+
+                </div>
+            </article>
+
+        </section>
+
+        <!-- WIDE FEATURE -->
+        <article class="news-card wide-card" data-category="vintage">
+
+            <img src="/images/PlusFour.png" class="news-image">
+
+            <div class="overlay"></div>
+
+            <div class="news-content">
+
+                <span class="category-tag">
+                    Vintage
+                </span>
+
+                <h2>
+                    Morgan Plus Four
+                    Returns to America
+                </h2>
+
+            </div>
+        </article>
+
     </div>
-    <!-- News Section -->
-    <div class="main-news">
-        <!-- Row 1 -->
-        <div class="news-item">
-            <img src="/images//McLaren-W1.jpeg" alt="McLaren-w1" class="news-image">
-            <h3 class="news-title">1258-HP McLaren W1 Is the P1's Successor and the Most Powerful McLaren Ever</h3>
-            <p class="news-description">A plug-in-hybrid V-8 powertrain and Formula 1-inspired aerodynamic elements
-                should make the W1 a real beast on the track.
-            </p>
-            <p class="news-date">By Dew Dorian | Oct 06 2024</p>
-        </div>
-        <div class="news-item empty"></div>
 
-        <!-- Row 2 -->
-        <div class="news-item">
-            <img src="/images//Cybertruck.JPG" alt="tesla-cybertruck" class="news-image" id="third">
-            <h3 class="news-title">Some Cybertrucks are finally getting FSD</h3>
-        </div>
-        <div class="news-item">
-            <img src="/images//Ford-Expedition.JPG" alt="ford-expedition-2005" class="news-image" id="fourth">
-            <h3 class="news-title">2025 Ford Expedition Adds Off-Road-Focused Tremor for the First Time</h3>
-        </div>
-
-        <!-- Row 3 -->
-        <div class="news-item">
-            <img src="/images//Mazda-RX8.JPG" alt="mazda-rx-8" class="news-image" id="fifth">
-            <h3 class="news-title">Final-Year Mazda RX-8 Is Today's Pick on Bring a Trailer</h3>
-            <p class="news-description">Here's your chance to buy one of the last production rotary-powered cars sold in
-                America.</p>
-            <p class="news-date">By Brendan Mcaleer | Oct 02 2024</p>
-        </div>
-        <div class="news-item">
-            <img src="/images//Bernie.JPG" alt="tesla-cybertruck" class="news-image" id="sixth">
-            <h3 class="news-title">Bernie Ecclestone's prized race cars are for sale</h3>
-            <p class="news-description">The collection—reportedly worth about $400 million—includes the first Ferrari to
-                win an F1 race and other iconic machines</p>
-            <p class="news-date">By Brendan Mcaleer | Dec 2 2024</p>
-        </div>
-        <div class="news-item">
-            <img src="/images//LesIntouchables.png" alt="LesIntouchables" class="news-image" id="seventh">
-            <h3 class="news-title">Les Intouchables: In an EV World, French Car Design Has Kept Every Bit of Its
-                Charisma.</h3>
-            <p class="news-description">French automakers Renault and DS reclaim history for design inspiration, and
-                that goes for both concept and production vehicles. Here are some of our favorites.</p>
-            <p class="news-date">By Caleb Miller | Dec 1 2024</p>
-        </div>
-
-        <!-- Row 4 -->
-        <div class="news-item">
-            <img src="/images//PlusFour.png" alt="Bobby" class="news-image" id="eigth">
-            <h3 class="news-title">Morgan Confirms U.S. Return for Plus Four</h3>
-        </div>
-        <div class="news-item">
-            <img src="/images//Bobby.JPG" alt="Bobby" class="news-image" id="ninth">
-            <h3 class="news-title">Remembering the Late Great NASCAR Legend Bobby Allison</h3>
-        </div>
-    </div>
 
     <script>
         if (localStorage.getItem("loggedIn") !== "true") {
             window.location.href = "/LogIn.html";
         }
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function (event) {
-                event.preventDefault(); // Prevent default navigation
-                const target = this.dataset.target; // Get target ID
-                const gearPoint = document.getElementById('gear-point');
 
-                // Define animations for each target
-                const animations = {
-                    home: { animation: "moveToHome 1s forwards", url: "/index.html" },
-                    explore: { animation: "moveToExplore 1s forwards", url: "/ExploreCars.html" },
-                    community: { animation: "moveToCommunity 1s forwards", url: "/Community.html" },
-                    profile: { animation: "moveToProfile 1s forwards", url: "/Profile.html" },
-                    drives: { animation: "moveToDrives 1s forwards", url: "/Drives.html" },
-                    news: { animation: "moveToNews 1s forwards", url: "/News.html" }
-                };
+        /* FILTERS */
+        const chips = document.querySelectorAll(".chip");
+        const cards = document.querySelectorAll(".news-card");
 
-                // Apply the animation
-                if (animations[target]) {
-                    gearPoint.style.animation = animations[target].animation;
+        chips.forEach(chip => {
 
-                    // Navigate to the target page after animation
-                    setTimeout(() => {
-                        window.location.href = animations[target].url;
-                    }, 1000); // Match this duration with the animation duration
-                }
+            chip.addEventListener("click", () => {
+
+                chips.forEach(c =>
+                    c.classList.remove("active"));
+
+                chip.classList.add("active");
+
+                const category =
+                    chip.dataset.category;
+
+                cards.forEach(card => {
+
+                    if (
+                        category === "all" ||
+                        card.dataset.category === category
+                    ) {
+                        card.style.display = "";
+                    } else {
+                        card.style.display = "none";
+                    }
+
+                });
+
             });
+
         });
+
+        /* GEAR NAV */
+        document.querySelectorAll('.nav-link')
+            .forEach(link => {
+
+                link.addEventListener(
+                    'click',
+                    function (event) {
+
+                        event.preventDefault();
+
+                        const target =
+                            this.dataset.target;
+
+                        const gearPoint =
+                            document.getElementById(
+                                'gear-point'
+                            );
+
+                        const animations = {
+
+                            home: {
+                                animation:
+                                    "moveToHome 1s forwards",
+                                url:
+                                    "/index.html"
+                            },
+
+                            explore: {
+                                animation:
+                                    "moveToExplore 1s forwards",
+                                url:
+                                    "/ExploreCars.html"
+                            },
+
+                            community: {
+                                animation:
+                                    "moveToCommunity 1s forwards",
+                                url:
+                                    "/Community.html"
+                            },
+
+                            profile: {
+                                animation:
+                                    "moveToProfile 1s forwards",
+                                url:
+                                    "/Profile.html"
+                            },
+
+                            drives: {
+                                animation:
+                                    "moveToDrives 1s forwards",
+                                url:
+                                    "/Drives.html"
+                            },
+
+                            news: {
+                                animation:
+                                    "moveToNews 1s forwards",
+                                url:
+                                    "/News.html"
+                            }
+                        };
+
+                        if (animations[target]) {
+
+                            gearPoint.style.animation =
+                                animations[target]
+                                    .animation;
+
+                            setTimeout(() => {
+
+                                window.location.href =
+                                    animations[target]
+                                        .url;
+
+                            }, 1000);
+                        }
+                    }
+                );
+            });
     </script>
+
 </body>
-<style>
-    body {
-        background-color: #000000;
-        font-family: "Girassol", serif;
-        font-weight: 400;
-        font-style: normal;
-    }
-
-    @keyframes moveToDrives {
-        0% {
-            top: 136px;
-            left: 66px;
-        }
-
-        25% {
-            top: 118px;
-            left: 66px;
-        }
-
-        50% {
-            top: 118px;
-            left: 168px;
-        }
-
-        100% {
-            top: 155px;
-            left: 168px;
-        }
-    }
-
-    @keyframes moveToHome {
-        0% {
-            top: 136px;
-            left: 66px;
-        }
-
-        50% {
-            top: 118px;
-            left: 66px;
-        }
-
-        100% {
-            top: 75px;
-            left: 62px;
-        }
-    }
-
-    @keyframes moveToCommunity {
-        0% {
-            top: 136px;
-            left: 66px;
-        }
-
-        25% {
-            top: 118px;
-            left: 62px;
-        }
-
-        50% {
-            top: 118px;
-            left: 168px;
-        }
-
-        100% {
-            top: 90px;
-            left: 168px;
-        }
-    }
-
-    @keyframes moveToExplore {
-        0% {
-            top: 136px;
-            left: 66px;
-        }
-
-        25% {
-            top: 118px;
-            left: 66px;
-        }
-
-        50% {
-            top: 118px;
-            left: 118px;
-        }
-
-
-        100% {
-            top: 45px;
-            left: 118px;
-        }
-    }
-
-    @keyframes moveToProfile {
-        0% {
-            top: 136px;
-            left: 66px;
-        }
-
-        25% {
-            top: 118px;
-            left: 66px;
-        }
-
-        50% {
-            top: 118px;
-            left: 118px;
-        }
-
-
-        100% {
-            top: 185px;
-            left: 118px;
-        }
-    }
-
-    .main-news {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        padding: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .news-item {
-        border-radius: 8px;
-        overflow: hidden;
-        text-align: center;
-        padding: 15px;
-    }
-
-    .news-image {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
-
-    .news-title {
-        font-size: 1.5rem;
-        color: #ffffff;
-        margin: 10px 0 5px;
-        text-align: left;
-    }
-
-    .news-description {
-        font-size: 1rem;
-        color: #ffffff;
-        margin: 0 0 10px;
-        text-align: left;
-    }
-
-    .news-date {
-        font-size: 0.9rem;
-        color: #ffffff;
-        text-align: left;
-    }
-
-    .news-item.empty {
-        background: none;
-        border: none;
-        box-shadow: none;
-    }
-
-    .main-news> :nth-child(1),
-    .main-news> :nth-child(4),
-    .main-news> :nth-child(8) {
-        grid-column: span 2;
-    }
-
-    .main-news> :nth-child(2) {
-        grid-column: span 1;
-    }
-
-    .main-news> :nth-child(3) {
-        grid-column: span 1;
-    }
-
-    .main-news> :nth-child(5),
-    .main-news> :nth-child(6),
-    .main-news> :nth-child(7) {
-        grid-column: span 1;
-    }
-
-
-    .main-news> :nth-child(9) {
-        grid-column: span 1;
-    }
-
-    .main-news> :nth-child(3) .news-title,
-    .main-news> :nth-child(4) .news-title,
-    .main-news> :nth-child(8) .news-title,
-    .main-news> :nth-child(9) .news-title {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        z-index: 1;
-    }
-
-    .main-news> :nth-child(3),
-    .main-news> :nth-child(4),
-    .main-news> :nth-child(8),
-    .main-news> :nth-child(9) {
-        position: relative;
-    }
-
-
-    #fourth {
-        height: 65%;
-        width: 90%;
-    }
-
-    #third {
-        height: 65%;
-    }
-
-    #eigth {
-        height: 85%;
-    }
-
-    #ninth {
-        height: 85%;
-        width: 90%;
-    }
-</style>
 
 </html>
