@@ -20,7 +20,7 @@
     {
         "id": 3,
         "name": "Porsche 911 Turbo S",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "3.8L Twin-Turbo Flat-6",
         "detail2": "640 hp",
         "detail3": "205mph",
@@ -254,7 +254,7 @@
     {
         "id": 29,
         "name": "Ferrari Enzo Ferrari",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "6.0L Naturally Aspirated V12",
         "detail2": "651 hp",
         "detail3": "218mph",
@@ -263,7 +263,7 @@
     {
         "id": 30,
         "name": "McLaren P1",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "3.8L Twin-Turbo V8 Hybrid",
         "detail2": "903 hp",
         "detail3": "218mph",
@@ -272,7 +272,7 @@
     {
         "id": 31,
         "name": "Pagani Huayra",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "3.9L Twin-Turbo V8",
         "detail2": "661 hp",
         "detail3": "268mph",
@@ -281,7 +281,7 @@
     {
         "id": 32,
         "name": "Koenigsegg Agera RS",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "5.0L Twin-Turbocharged V8",
         "detail2": "1,341 hp",
         "detail3": "278mph",
@@ -290,7 +290,7 @@
     {
         "id": 33,
         "name": "Nissan Skyline GT-R R34",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "2.6L Twin-Turbo Inline-6",
         "detail2": "276 hp",
         "detail3": "186mph",
@@ -299,7 +299,7 @@
     {
         "id": 34,
         "name": "Mazda RX-7",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "1.3L Twin-Rotor Rotary Engine",
         "detail2": "276 hp",
         "detail3": "160-186mph",
@@ -308,7 +308,7 @@
     {
         "id": 35,
         "name": "Honda NSX",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "3.5L Twin-Turbocharged V6 Hybrid",
         "detail2": "573 hp",
         "detail3": "170mph",
@@ -317,7 +317,7 @@
     {
         "id": 36,
         "name": "Toyota Supra MKIV",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "3.0L Twin-Turbocharged Inline-6",
         "detail2": "276 hp",
         "detail3": "177-186mph",
@@ -326,7 +326,7 @@
     {
         "id": 37,
         "name": "Dodge Viper",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "8.4L Naturally Aspirated V10",
         "detail2": "645 hp",
         "detail3": "190-206 mph",
@@ -335,7 +335,7 @@
     {
         "id": 38,
         "name": "Caterham Seven",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "2.0L Inline-4",
         "detail2": "310 hp",
         "detail3": "124-155mph",
@@ -344,7 +344,7 @@
     {
         "id": 39,
         "name": "Lotus Elise",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "1.8L Supercharged Inline-4",
         "detail2": "240 hp",
         "detail3": "155-168mph",
@@ -353,7 +353,7 @@
     {
         "id": 40,
         "name": "Ariel Atom",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "2.0L Supercharged Inline-4",
         "detail2": "320 hp",
         "detail3": "150-160mph",
@@ -362,7 +362,7 @@
     {
         "id": 41,
         "name": "BAC Mono",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "2.5L Inline-4",
         "detail2": "305 hp",
         "detail3": "170mph",
@@ -371,7 +371,7 @@
     {
         "id": 42,
         "name": "Radical SR8",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "2.7L V8",
         "detail2": "430 hp",
         "detail3": "155-190mph",
@@ -380,7 +380,7 @@
     {
         "id": 43,
         "name": "Datsun 240Z",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "2.4L Inline-6",
         "detail2": "151 hp",
         "detail3": "125mph",
@@ -389,7 +389,7 @@
     {
         "id": 44,
         "name": "Ferrari 812 Superfast",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "6.5L Naturally Aspirated V12",
         "detail2": "789 hp",
         "detail3": "211mph",
@@ -398,7 +398,7 @@
     {
         "id": 45,
         "name": "Lamborghini Urus",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "4.0L Twin-Turbo V8",
         "detail2": "641 hp",
         "detail3": "190mph",
@@ -407,7 +407,7 @@
     {
         "id": 46,
         "name": "Porsche Taycan Turbo S",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "Electric Dual Motor",
         "detail2": "750 hp",
         "detail3": "161mph",
@@ -416,7 +416,7 @@
     {
         "id": 47,
         "name": "Audi RS 6 Avant",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "5.2L Naturally Aspirated V10",
         "detail2": "602 hp",
         "detail3": "189mph",
@@ -425,7 +425,7 @@
     {
         "id": 48,
         "name": "Mercedes-AMG E63 S",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "4.0L Twin-Turbo V8",
         "detail2": "603 hp",
         "detail3": "186mph",
@@ -434,7 +434,7 @@
     {
         "id": 49,
         "name": "BMW M8 Competition",
-        "image": "/images/Sportscars/Porsche-911-Turbo-S.jpeg",
+        "image": "/images/Sportscars/Porsche-911-Turbo-s.jpeg",
         "detail1": "4.4L Twin-Turbo V8",
         "detail2": "617 hp",
         "detail3": "190mph",
