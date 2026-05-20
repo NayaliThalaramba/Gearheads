@@ -20,115 +20,115 @@ fetch('/server/data/sportscar.json')
         // Brand-Logo Mapping
         const brandMapping = {
             Ferrari: {
-                logo: '/Images/Brands/Ferrari.png',
+                logo: '/images/Brands/Ferrari.png',
                 // details: "Ferrari is known for its luxury sports cars and Formula 1 racing."
             },
             Porsche: {
-                logo: '/Images/Brands/Porsche.png',
+                logo: '/images/Brands/Porsche.png',
                 // details: "Porsche is renowned for its high-performance sports cars and SUVs."
             },
             Lamborghini: {
-                logo: '/Images/Brands/Lamborghini.png',
+                logo: '/images/Brands/Lamborghini.png',
 
             },
             Tesla: {
-                logo: '/Images/Brands/Tesla.png',
+                logo: '/images/Brands/Tesla.png',
 
             },
             McLaren: {
-                logo: '/Images/Brands/McLaren.png',
+                logo: '/images/Brands/McLaren.png',
 
             },
             Bugatti: {
-                logo: '/Images/Brands/Bugatti.png',
+                logo: '/images/Brands/Bugatti.png',
 
             },
             Koenigsegg: {
-                logo: '/Images/Brands/Koenigsegg.png',
+                logo: '/images/Brands/Koenigsegg.png',
 
             },
             Nissan: {
-                logo: '/Images/Brands/Nissan.png',
+                logo: '/images/Brands/Nissan.png',
 
             },
             Toyota: {
-                logo: '/Images/Brands/Toyota.png',
+                logo: '/images/Brands/Toyota.png',
 
             },
             Subaru: {
-                logo: '/Images/Brands/Subaru.png',
+                logo: '/images/Brands/Subaru.png',
 
             },
             Mitsubishi: {
-                logo: '/Images/Brands/Mitsubishi.png',
+                logo: '/images/Brands/Mitsubishi.png',
 
             },
             Ford: {
-                logo: '/Images/Brands/Ford.png',
+                logo: '/images/Brands/Ford.png',
 
             },
             Chevrolet: {
-                logo: '/Images/Brands/Chevrolet.png',
+                logo: '/images/Brands/Chevrolet.png',
 
             },
             Dodge: {
-                logo: '/Images/Brands/Dodge.png',
+                logo: '/images/Brands/Dodge.png',
 
             },
             Audi: {
-                logo: '/Images/Brands/Audi.png',
+                logo: '/images/Brands/Audi.png',
 
             },
             BMW: {
-                logo: '/Images/Brands/BMW.png',
+                logo: '/images/Brands/BMW.png',
 
             },
             Mercedes: {
-                logo: '/Images/Brands/Mercedes.png',
+                logo: '/images/Brands/Mercedes.png',
 
             },
             Aston: {
-                logo: '/Images/Brands/Aston.png',
+                logo: '/images/Brands/Aston.png',
 
             },
             Bentley: {
-                logo: '/Images/Brands/Bentley.png',
+                logo: '/images/Brands/Bentley.png',
 
             },
             Rolls: {
-                logo: '/Images/Brands/Rolls-Royce.png',
+                logo: '/images/Brands/Rolls-Royce.png',
 
             },
             Pagani: {
-                logo: '/Images/Brands/Pagani.png',
+                logo: '/images/Brands/Pagani.png',
 
             },
             Datsun: {
-                logo: '/Images/Brands/Datsun.png',
+                logo: '/images/Brands/Datsun.png',
 
             },
             Mazda: {
-                logo: '/Images/Brands/Mazda.png',
+                logo: '/images/Brands/Mazda.png',
 
             },
             Honda: {
-                logo: '/Images/Brands/Honda.png',
+                logo: '/images/Brands/Honda.png',
 
             },
             Lotus: {
-                logo: '/Images/Brands/Lotus.png',
+                logo: '/images/Brands/Lotus.png',
 
             },
             Caterham: {
-                logo: '/Images/Brands/Caterham.png',
+                logo: '/images/Brands/Caterham.png',
 
             },
             Ariel: {
-                logo: '/Images/Brands/Ariel.png',
+                logo: '/images/Brands/Ariel.png',
 
             },
             Radical: {
-                logo: '/Images/Brands/Radical.png',
+                logo: '/images/Brands/Radical.png',
 
             }
         };
@@ -151,10 +151,10 @@ fetch('/server/data/sportscar.json')
                 );
 
                 if (brandName) {
-                    modalLogo.src = brandMapping[brandName].logo || '/Images/default-logo.png';
+                    modalLogo.src = brandMapping[brandName].logo || '/images/default-logo.png';
                     modalBrand.textContent = brandName;
                 } else {
-                    modalLogo.src = '/Images/default-logo.png'; // Default logo
+                    modalLogo.src = '/images/default-logo.png'; // Default logo
                     modalBrand.textContent = 'Unknown Brand';
                 }
 
